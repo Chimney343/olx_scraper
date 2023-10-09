@@ -10,15 +10,15 @@ packages = [{include = "olx_scraper"}]
 python = ">=3.8,<3.12"
 pandas = "^1.5.3"
 Scrapy = "^2.8.0"
-
+plotly = "^5.14.1"
 tqdm = ">=4.48.2,<4.65"
 dash = "^2.9.2"
 splash = "^3.5"
 python-dotenv = "^1.0.0"
 
 [tool.poetry.group.dev.dependencies]
-jupyterlab-code-formatter = "1.5.1"
-jupyterlab = "^3.6.2"
+jupyterlab-code-formatter = "2.2.1"
+jupyterlab = "^4.0.6"
 black = "^23.3.0"
 isort = "^5.12.0"
 
