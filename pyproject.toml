@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "olx_scraper"
+version = "0.0.1"
+description = ""
+authors = ["Michal Kominek <mk.kominek@gmail.com>"]
+readme = "README.md"
+packages = [{include = "olx_scraper"}]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.12"
+pandas = "^1.5.3"
+Scrapy = "^2.8.0"
+plotly = "^5.14.1"
+tqdm = ">=4.48.2,<4.65"
+dash = "^2.9.2"
+splash = "^3.5"
+python-dotenv = "^1.0.0"
+parsedatetime = "^2.6"
+dateparser = "^1.1.8"
+google-cloud-bigquery = "^3.12.0"
+
+[tool.poetry.group.dev.dependencies]
+jupyterlab-code-formatter = "2.2.1"
+jupyterlab = "^4.0.6"
+black = "^23.3.0"
+isort = "^5.12.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
