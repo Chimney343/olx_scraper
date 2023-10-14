@@ -15,6 +15,9 @@ tqdm = ">=4.48.2,<4.65"
 dash = "^2.9.2"
 splash = "^3.5"
 python-dotenv = "^1.0.0"
+parsedatetime = "^2.6"
+dateparser = "^1.1.8"
+google-cloud-bigquery = "^3.12.0"
 
 [tool.poetry.group.dev.dependencies]
 jupyterlab-code-formatter = "2.2.1"
