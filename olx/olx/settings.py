@@ -6,6 +6,7 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+import os
 
 BOT_NAME = "olx"
 
@@ -65,6 +66,13 @@ ROBOTSTXT_OBEY = False
 ITEM_PIPELINES = {
     "olx.pipelines.BigQueryExportPipeline": 1,
 }
+
+GOOGLE_APPLICATION_CREDENTIALS_TABLETOP_BIGQUERY_WORKER_JSON = os.environ.get(
+            "GOOGLE_APPLICATION_CREDENTIALS_TABLETOP_BIGQUERY_WORKER_JSON"
+        )
+
+BIGQUERY_EXPORT_PIPEPLINE_DATASET_ID = "scraping_dev"
+BIGQUERY_EXPORT_PIPELINE_TABLE_ID = "raw"
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

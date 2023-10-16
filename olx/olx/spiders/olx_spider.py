@@ -28,12 +28,15 @@ class OlxSpider(scrapy.Spider):
         "bloody palace",
         "dune imperium",
         "diuna imperium",
+        'fear of the unknown',
         "fallout shelter",
         "fruit ninja",
         "gretchinz",
         "hannibal hamilcar",
         "homeworld fleet command",
         "kemet",
+        'stalker board game',
+        'fromage',
         "pan lodowego ogrodu",
         "metal gear solid",
         "katedra koszmarów",
@@ -144,5 +147,5 @@ class OlxSpider(scrapy.Spider):
             # Ensure the URL is absolute
             absolute_next_page_url = response.urljoin(next_page_url)
             yield scrapy.Request(
-                absolute_next_page_url, self.parse, cb_kwargs={"label": label}
+                absolute_next_page_url, self.parse, cb_kwargs={"label": query_label}
             )

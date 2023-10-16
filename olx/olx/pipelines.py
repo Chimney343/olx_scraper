@@ -14,25 +14,23 @@ from google.api_core.exceptions import NotFound
 from google.cloud import bigquery
 from google.oauth2 import service_account
 
+from .settings import GOOGLE_APPLICATION_CREDENTIALS_TABLETOP_BIGQUERY_WORKER_JSON, BIGQUERY_EXPORT_PIPEPLINE_DATASET_ID, BIGQUERY_EXPORT_PIPELINE_TABLE_ID
 
 class BigQueryExportPipeline:
+    credentials_raw = GOOGLE_APPLICATION_CREDENTIALS_TABLETOP_BIGQUERY_WORKER_JSON
+    # Your dataset and table name in BigQuery
+    dataset_id = BIGQUERY_EXPORT_PIPEPLINE_DATASET_ID
+    table_id = BIGQUERY_EXPORT_PIPELINE_TABLE_ID
+
     def open_spider(self, spider):
-        credentials_raw = os.environ.get(
-            "GOOGLE_APPLICATION_CREDENTIALS_TABLETOP_BIGQUERY_WORKER_JSON"
-        )
         credentials = service_account.Credentials.from_service_account_file(
-            credentials_raw
+            self.credentials_raw
         )
 
         # Initialize BigQuery client
         self.client = bigquery.Client(
             credentials=credentials, project=credentials.project_id
         )
-
-        # Your dataset and table name in BigQuery
-        self.dataset_id = "scraping_dev"
-        self.table_id = "raw"
-
         # Ensure the table exists
         self.ensure_table_exists(spider)
 

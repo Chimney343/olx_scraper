@@ -107,7 +107,6 @@ def contains_token(haystack, needle):
     Returns:
     - bool: True if the needle is found within the haystack, otherwise False.
     """
-    print(haystack)
     # Remove punctuation and make both strings lowercase
     cleaned_haystack = re.sub(r"[^\w\s]", "", haystack).lower()
     cleaned_needle = re.sub(r"[^\w\s]", "", needle).lower()
